@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: edge-tts-server
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 --threads 8 -b 0.0.0.0:$PORT tts_server:app
+    envVars:
+      - key: VOICE
+        value: es-PE-AlexNeural
+      - key: RATE
+        value: +2%
+      - key: VOLUME
+        value: +5%
+      - key: MAX_SYNTH_WORKERS
+        value: 4
+      - key: CACHE_TTL_SECONDS
+        value: 300
+      - key: CLEANUP_INTERVAL_SECONDS
+        value: 60
