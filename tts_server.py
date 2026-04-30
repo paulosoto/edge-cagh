@@ -13,7 +13,7 @@ app = Flask(__name__)
 CACHE_DIR = "./tts_cache"
 os.makedirs(CACHE_DIR, exist_ok=True)
 
-VOICE = "es-PE-AlexNeural"
+VOICE = "es-CO-SalomeNeural"
 RATE = "+2%"
 VOLUME = "+5%"
 
